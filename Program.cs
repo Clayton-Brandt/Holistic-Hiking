@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Holistic_Hiking.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Connection String for DbContext
+builder.Services.AddDbContext<ApplicationDbContext>
+    (options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnectionString"))
+    );
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
