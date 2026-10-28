@@ -1,19 +1,24 @@
+<<<<<<< Updated upstream
+=======
+using DotNetEnv;
+using Holistic_Hiking.Services;
+
+>>>>>>> Stashed changes
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
+<<<<<<< Updated upstream
 
 var app = builder.Build();
+=======
+>>>>>>> Stashed changes
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+builder.Services.AddScoped<NpsService>();
+
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseRouting();
