@@ -8,23 +8,23 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\terys\\.nuget\\packages\\": {},
+    "C:\\Users\\Papa Logan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\terys\\Documents\\GitHub\\Holistic-Hiking\\Holistic-Hiking\\Holistic-Hiking.csproj",
+      "projectUniqueName": "D:\\College\\ETSU\\Fall 2026\\Software Engineering\\Holistic-Hiking\\Holistic-Hiking.csproj",
       "projectName": "Holistic-Hiking",
-      "projectPath": "C:\\Users\\terys\\Documents\\GitHub\\Holistic-Hiking\\Holistic-Hiking\\Holistic-Hiking.csproj",
-      "packagesPath": "C:\\Users\\terys\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\terys\\Documents\\GitHub\\Holistic-Hiking\\Holistic-Hiking\\obj\\",
+      "projectPath": "D:\\College\\ETSU\\Fall 2026\\Software Engineering\\Holistic-Hiking\\Holistic-Hiking.csproj",
+      "packagesPath": "C:\\Users\\Papa Logan\\.nuget\\packages\\",
+      "outputPath": "D:\\College\\ETSU\\Fall 2026\\Software Engineering\\Holistic-Hiking\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\terys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Papa Logan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
