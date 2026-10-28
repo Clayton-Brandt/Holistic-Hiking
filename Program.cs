@@ -1,7 +1,14 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 using DotNetEnv;
 using Holistic_Hiking.Services;
+
+>>>>>>> Stashed changes
+=======
+using DotNetEnv;
+
+Env.Load();
 
 >>>>>>> Stashed changes
 var builder = WebApplication.CreateBuilder(args);
