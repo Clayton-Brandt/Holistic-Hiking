@@ -1,31 +1,201 @@
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
     font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    color: #17202b;
+    font-family: "Times New Roman", Times, serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Navigation */
+.site-navbar {
+    min-height: 64px;
+    padding: 8px 26px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dce2e9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 28px;
+}
+
+.site-navbar .navbar-brand {
+    margin: 0;
+    color: #1760c5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.site-navbar .nav-link {
+    color: #1760c5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.site-navbar .nav-link:hover {
+    color: #0b438f;
+}
+
+/* Main page */
+.main-content {
+    width: 100%;
+    flex: 1;
+    padding: 0 28px 55px;
+}
+
+.hero {
+    padding: 26px 10px 18px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 0;
+    font-size: 1.65rem;
+}
+
+.page-divider {
+    margin: 6px 0 30px;
+    border: 0;
+    border-top: 2px solid #dce2e9;
+    opacity: 1;
+}
+
+/* Trail count */
+.trail-count {
+    margin: 32px 0 40px;
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+/* Search filters */
+.filter-container {
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.filter-container h3 {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.filterSection {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    text-align: center;
+}
+
+.filter-group label {
+    font-size: 1.25rem;
+}
+
+.filter-group .form-select {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid #b8c8dc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #263548;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+.filter-group .form-select:focus {
+    border-color: #1760c5;
+    box-shadow: 0 0 0 3px rgba(23, 96, 197, 0.15);
+}
+
+/* Search button */
+.search-button {
+    align-self: center;
+    margin-top: 10px;
+    padding: 11px 25px;
+    border: 1px solid #1760c5;
+    border-radius: 6px;
+    background-color: #1760c5;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #104a9b;
+}
+
+/* Footer */
+.site-footer {
+    width: 100%;
+    padding: 22px 0;
+    border-top: 1px solid #dce2e9;
+    color: #52647d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+    .site-navbar {
+        padding: 10px 16px;
+    }
+
+    .nav-container {
+        gap: 18px;
+    }
+
+    .site-navbar .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .main-content {
+        padding: 0 18px 40px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.15rem;
+    }
+
+    .trail-count {
+        font-size: 1.6rem;
+    }
+
+    .filter-container h3 {
+        font-size: 1.7rem;
+    }
 }
