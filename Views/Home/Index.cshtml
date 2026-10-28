@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Holistic Hiking";
+}
+
+<div class="text-center" style="font-family: 'Times New Roman', Times, serif; margin-top: 30px;">
+    <h1>Holistic Hiking</h1>
+    <p>Find the perfect hiking trail based on your preferences.</p>
+</div>
+
+<hr />
+
+<h2 id="trailCount" class="text-center">
+    Currently searching @ViewBag.TrailCount trails.
+</h2>
+
+<div class="text-center">
+    <h3>General</h3>
+
+    <div class="filterSection">
+        <label for="difficulty">Difficulty</label>
+        <br />
+        <select id="difficulty">
+            <option value="">Any Difficulty</option>
+            @if (ViewBag.Difficulties != null)
+            {
+                foreach (var difficulty in ViewBag.Difficulties)
+                {
+                    <option value="@difficulty">@difficulty</option>
+                }
+            }
+        </select>
+
+        <br /><br />
+
+        <label for="location">Location</label>
+        <br />
+        <select id="location">
+            <option value="">Any Location</option>
+            @if (ViewBag.Locations != null)
+            {
+                foreach (var location in ViewBag.Locations)
+                {
+                    <option value="@location">@location</option>
+                }
+            }
+        </select>
+
+        <br /><br />
+
+        <label for="trailLength">Trail Length</label>
+        <br />
+        <select id="trailLength">
+            <option value="">Any Length</option>
+            <option value="short">Short</option>
+            <option value="medium">Medium</option>
+            <option value="long">Long</option>
+        </select>
+
+        <br /><br />
+
+    <button id="searchButton" type="button">Search for Trails</button>
+</div>
