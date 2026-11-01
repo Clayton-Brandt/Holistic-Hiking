@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Services;
+using DotNetEnv;
+
+// Load environment variables
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
