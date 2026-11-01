@@ -7,8 +7,8 @@ public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext (DbContextOptions options) : base (options)
     {
-        
     }
 
+    public DbSet<Trail> Trails => Set<Trail>();
     
 }

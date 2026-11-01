@@ -14,15 +14,15 @@ public class Trail
 
     // Trail Name
     // [StringLength (128)]
-    public string TrailName {get; set;} = string.Empty;
+    public string Name {get; set;} = string.Empty;
 
     // Location
     // [StringLength (32)]
-    public string TrailLocation {get; set;} = string.Empty;
+    public string Location {get; set;} = string.Empty;
 
     // Length -- Do we want to do string or int?
     // [StringLength (16)]
-    public string TrailLength {get; set;} = string.Empty;
+    public string Length {get; set;} = string.Empty;
 
     // Difficulty -- Do we want to do string or int? 1-10? or "easy, medium, hard"?
     public int Difficulty {get; set;}
