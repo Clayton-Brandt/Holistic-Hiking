@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37c424f7e5a330b221fd878ec638296f294ed363")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea705cc86b5fab4b7788dd33af7493155bd8d8a1")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c29d641eac2e434fe498472a82c161085848ccab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

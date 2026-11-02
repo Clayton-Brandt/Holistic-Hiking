@@ -1,11 +1,16 @@
 using DotNetEnv;
+
 using Holistic_Hiking.Services;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
 
 // Register services before building the app.
+
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<NpsService>();
