@@ -1,7 +1,7 @@
 # Holistic-Hiking
 The best hiking website in the world!
 
-First run these commands:
+## Generating Database
 dotnet ef database update
 dotnet build
 dotnet watch
