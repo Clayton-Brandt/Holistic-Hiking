@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Models.Entities;
+using Holistic_Hiking.Data;
 
 namespace Holistic_Hiking.Services;
 

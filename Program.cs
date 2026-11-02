@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Data;
 using Holistic_Hiking.Services;
 using DotNetEnv;
-using Holistic_Hiking.Services;
 
 
 // Load environment variables
