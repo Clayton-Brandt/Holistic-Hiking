@@ -12,8 +12,7 @@ Env.Load();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient();
-builder.Services.AddScoped<NpsService>();
+builder.Services.AddHttpClient<NpsService>();
 
 var app = builder.Build();
 

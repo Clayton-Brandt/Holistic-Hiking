@@ -1,8 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "JuoqklpY7ko=",
+  "dgSpecHash": "DDUL+N3hQLM=",
   "success": true,
   "projectFilePath": "C:\\Users\\natha\\OneDrive\\Documents\\Holistic-Hiking\\Holistic-Hiking.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\natha\\.nuget\\packages\\dotnetenv\\3.2.0\\dotnetenv.3.2.0.nupkg.sha512",
+    "C:\\Users\\natha\\.nuget\\packages\\microsoft.extensions.http\\10.0.0\\microsoft.extensions.http.10.0.0.nupkg.sha512",
+    "C:\\Users\\natha\\.nuget\\packages\\superpower\\3.0.0\\superpower.3.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference Microsoft.Extensions.Http will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.",
+      "projectPath": "C:\\Users\\natha\\OneDrive\\Documents\\Holistic-Hiking\\Holistic-Hiking.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\natha\\OneDrive\\Documents\\Holistic-Hiking\\Holistic-Hiking.csproj",
+      "libraryId": "Microsoft.Extensions.Http",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

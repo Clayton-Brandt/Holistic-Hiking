@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c29d641eac2e434fe498472a82c161085848ccab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+224c2e790f5775b3473f6ccaaa15692ff8f70f84")]
 [assembly: System.Reflection.AssemblyProductAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Holistic-Hiking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
