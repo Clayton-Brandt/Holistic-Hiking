@@ -199,3 +199,11 @@ body {
         font-size: 1.7rem;
     }
 }
+
+
+/* For the logo. */
+.navbar-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
