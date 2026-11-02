@@ -482,8 +482,3 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-
-# Local Sqlite database (recreate with: dotnet ef database update)
-*.db
-*.db-shm
-*.db-wal
