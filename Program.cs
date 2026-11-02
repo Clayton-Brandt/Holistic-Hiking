@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Data;
 using Holistic_Hiking.Services;
 using DotNetEnv;
+using Holistic_Hiking.Services;
+
 
 // Load environment variables
 Env.Load();
@@ -24,7 +26,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<NpsService>();
 
 var app = builder.Build();
 
