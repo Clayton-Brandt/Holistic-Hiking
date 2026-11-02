@@ -4,9 +4,6 @@ using Holistic_Hiking.Data;
 
 namespace Holistic_Hiking.Services;
 
-/*
-Most likely will need to change when API is up and running
-*/
 public class DbTrailRepository : ITrailRepository
 {
     private readonly ApplicationDbContext _context;
@@ -15,7 +12,6 @@ public class DbTrailRepository : ITrailRepository
     {
         _context = context;
     }
-
 
     // Create Trail
     public async Task<Trail> CreateAsync (Trail trail)

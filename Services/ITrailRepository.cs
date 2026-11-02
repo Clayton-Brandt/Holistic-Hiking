@@ -2,10 +2,6 @@ using Holistic_Hiking.Models.Entities;
 
 namespace Holistic_Hiking.Services;
 
-/*
-Most likely will need to change when API is up and running
-Not sure how much of this we'll need because we're using an API... 
-*/
 public interface ITrailRepository
 {
     // Create Trail
