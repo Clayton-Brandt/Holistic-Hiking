@@ -1,62 +1,36 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Holistic Hiking";
 }
 
-<div class="hero">
-    <h1>Holistic Hiking</h1>
-    <p>Find the perfect hiking trail based on your preferences.</p>
-</div>
+<div class="homepage-background">
+    <div class="hero">
+        <h1>Holistic Hiking</h1>
 
-<hr class="page-divider" />
+        <h2>Find the perfect hiking trail based on your preferences.</h2>
 
-<h2 id="trailCount" class="trail-count">
-    Currently searching @ViewBag.TrailCount trails.
-</h2>
+        <p>
+            Discover hiking trails that match your interests, abilities, and preferences.
+            Whether you're a beginner or an experienced hiker, Holistic Hiking helps you
+            find the perfect trail for your next adventure.
+        </p>
 
-<section class="filter-container">
-    <h3>General</h3>
+        <div class="hero-buttons">
+            <a asp-controller="Trails"
+               asp-action="Index"
+               class="browse-button">
+                Browse Trails
+            </a>
 
-    <div class="filterSection">
-        <div class="filter-group">
-            <label for="difficulty">Difficulty</label>
-            <select id="difficulty" class="form-select">
-                <option value="">Any Difficulty</option>
-                @if (ViewBag.Difficulties != null)
-                {
-                    foreach (var difficulty in ViewBag.Difficulties)
-                    {
-                        <option value="@difficulty">@difficulty</option>
-                    }
-                }
-            </select>
+            <form asp-controller="Trails"
+                  asp-action="Index"
+                  method="get">
+                <input
+                    type="text"
+                    name="searchString"
+                    placeholder="Search by Name"
+                    aria-label="Search trails by name" />
+            </form>
         </div>
-
-        <div class="filter-group">
-            <label for="location">Location</label>
-            <select id="location" class="form-select">
-                <option value="">Any Location</option>
-                @if (ViewBag.Locations != null)
-                {
-                    foreach (var location in ViewBag.Locations)
-                    {
-                        <option value="@location">@location</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="filter-group">
-            <label for="trailLength">Trail Length</label>
-            <select id="trailLength" class="form-select">
-                <option value="">Any Length</option>
-                <option value="short">Short</option>
-                <option value="medium">Medium</option>
-                <option value="long">Long</option>
-            </select>
-        </div>
-
-        <button id="searchButton" type="button" class="search-button">
-            Search for Trails
-        </button>
     </div>
-</section>
+</div>
