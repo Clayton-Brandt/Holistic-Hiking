@@ -1,7 +1,96 @@
 @using Holistic_Hiking.Models.Entities
+@model IEnumerable<Holistic_Hiking.Models.Entities.Trail>
 
 @{
     ViewData[index:"Title"] = "Browse Trails";
 }
 
+
 <h1>Browse Trails</h1>
+
+<!-- Header -->
+<header class="header">
+    <div class="logo">
+        InsertLogoHere
+    </div>
+
+    <div class="profile">
+        <span>Username</span>
+        <div class="profile-picture">
+            InsertProfilePicture
+        </div>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <!--  Search by name -->
+        <input type="text" class="search-bar" placeholder="Search trails by name..."/>
+
+        <!-- Filter by Difficulty -->
+        <select class="filter">
+            <option value="">Difficulty</option>
+            <option>Easy</option>
+            <option>Moderate</option>
+            <option>Hard</option>
+        </select>
+
+        <!-- Filter by Length -->
+        <select class="filter">
+            <option value="">Length</option>
+            <option>Less than 5 miles</option>
+            <option>5-10 miles</option>
+            <option>greater than 10 miles</option>
+        </select>
+
+        <!-- Filter by Rating -->
+        <select class="filter">
+            <option value="">Rating</option>
+            <option>5 stars</option>
+            <option>4 stars</option>
+            <option>3 stars</option>
+            <option>2 stars</option>
+            <option>1 stars</option>
+        </select>
+
+    </aside>
+
+    <!-- Trail Listing -->
+    <main class="trail-list">
+        
+        @foreach (var trail in Model)
+        {
+            <div class="trail-info">
+                <h2>@trail.Name</h2>
+
+                <div class="trail-details">
+
+                    <img src="@trail.ImageUrl" alt="@trail.Name" class="trail-image"/>
+
+                    <div class="trail-details">
+                        <p>Location:</p>
+                        <p>Length:</p>
+                        <p>Difficulty:</p>
+                        <p>Rating:</p>
+                    </div>
+
+                    <div class="trail-detail-values">
+                        <p>@trail.Location</p>
+                        <p>@trail.Length</p>
+                        <p>@trail.Difficulty</p>
+                        <p>@trail.Rating</p>
+                    </div>
+
+                    <div class="trail-description">
+                        @trail.Description
+                    </div>
+
+                </div>
+            </div>
+        }
+    </main>
+
+</div>
