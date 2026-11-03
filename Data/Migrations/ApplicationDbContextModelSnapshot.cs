@@ -56,7 +56,7 @@ namespace Holistic_Hiking.Data.Migrations
                         new
                         {
                             TrailId = 1,
-                            Description = "Scenic Trail",
+                            Description = "Climbs through the Arch Rock tunnel and past Inspiration Point to the 100-foot-high Alum Cave Bluffs. The trail continues on to Mount LeConte.",
                             Difficulty = "Moderate",
                             Length = 4.5999999999999996,
                             Location = "Great Smoky Mountains National Park",
@@ -66,7 +66,7 @@ namespace Holistic_Hiking.Data.Migrations
                         new
                         {
                             TrailId = 2,
-                            Description = "Scenic Trail",
+                            Description = "Paved path to an 80-foot cascade. Closed for rehabilitation, with reopening expected in 2027.",
                             Difficulty = "Easy",
                             Length = 2.6000000000000001,
                             Location = "Great Smoky Mountains National Park",
@@ -76,11 +76,301 @@ namespace Holistic_Hiking.Data.Migrations
                         new
                         {
                             TrailId = 3,
-                            Description = "Scenic Trail",
+                            Description = "Strenuous climb of more than 2,100 feet through old-growth forest to the park's tallest waterfall, at 100 feet. The final half mile involves boulder-hopping along the stream.",
                             Difficulty = "Hard",
-                            Length = 15.0,
+                            Length = 8.0,
                             Location = "Great Smoky Mountains National Park",
-                            Name = "Ramsey Cascade Trail",
+                            Name = "Ramsey Cascades Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 4,
+                            Description = "Steep climb gaining about 1,400 feet off Newfound Gap Road. The final stretch to the summit pinnacles has been closed since the 2016 wildfires.",
+                            Difficulty = "Hard",
+                            Length = 4.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Chimney Tops Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 5,
+                            Description = "Steady climb of about 1,600 feet through forest to an 80-foot waterfall.",
+                            Difficulty = "Moderate",
+                            Length = 5.4000000000000004,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Rainbow Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 6,
+                            Description = "Popular Cades Cove hike to a short, powerful waterfall. Strong currents make swimming at the falls dangerous.",
+                            Difficulty = "Moderate",
+                            Length = 5.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Abrams Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 7,
+                            Description = "Follows the Appalachian Trail from Newfound Gap to a rocky outcrop with wide mountain views.",
+                            Difficulty = "Hard",
+                            Length = 8.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Charlies Bunion",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 8,
+                            Description = "Forney Ridge Trail from the Kuwohi parking area to a grassy high-elevation bald.",
+                            Difficulty = "Moderate",
+                            Length = 3.6000000000000001,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Andrews Bald",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 9,
+                            Description = "Trillium Gap Trail to a 25-foot waterfall that hikers can walk behind.",
+                            Difficulty = "Easy",
+                            Length = 2.6000000000000001,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Grotto Falls",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 10,
+                            Description = "Long, strenuous climb from Cades Cove to a high grassy bald known for its early summer flame azaleas.",
+                            Difficulty = "Hard",
+                            Length = 11.300000000000001,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Gregory Bald",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 11,
+                            Description = "Gentle Greenbrier area walk along a creek, popular for spring wildflowers.",
+                            Difficulty = "Easy",
+                            Length = 4.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Porters Creek Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 12,
+                            Description = "Old logging railroad grade in the Tremont area that follows a series of cascades.",
+                            Difficulty = "Moderate",
+                            Length = 8.3000000000000007,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Middle Prong Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 13,
+                            Description = "Quieter waterfall hike near Gatlinburg that sees less traffic than the park's better-known falls.",
+                            Difficulty = "Moderate",
+                            Length = 3.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Baskins Creek Falls",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 14,
+                            Description = "Wide, gently graded Elkmont trail beside the Little River.",
+                            Difficulty = "Easy",
+                            Length = 4.9000000000000004,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Little River Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 15,
+                            Description = "Challenging all-day climb to the summit of Mount LeConte.",
+                            Difficulty = "Hard",
+                            Length = 13.9,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Bullhead Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 16,
+                            Description = "Loop past a pair of massive natural sandstone arches, with steep wooden stairs and cliff edges along the way.",
+                            Difficulty = "Moderate",
+                            Length = 4.5,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Twin Arches Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 17,
+                            Description = "Forest walk leading to both a waterfall and a natural arch.",
+                            Difficulty = "Easy",
+                            Length = 3.0,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Slave Falls and Needle Arch",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 18,
+                            Description = "Easy loop on the west side of the park passing sandstone rock shelters.",
+                            Difficulty = "Easy",
+                            Length = 3.5,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Middle Creek Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 19,
+                            Description = "Longer west side loop rated moderately difficult by the park.",
+                            Difficulty = "Moderate",
+                            Length = 7.0999999999999996,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Rock Creek Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 20,
+                            Description = "The park's most challenging loop, with creek crossings and boulder fields. Allow about an hour per mile.",
+                            Difficulty = "Hard",
+                            Length = 5.5,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Honey Creek Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 21,
+                            Description = "Easy central area loop past a historic farmstead.",
+                            Difficulty = "Easy",
+                            Length = 3.6000000000000001,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Oscar Blevins Farm Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 22,
+                            Description = "Easy out-and-back walk to an overlook on the east side of the park.",
+                            Difficulty = "Easy",
+                            Length = 2.6000000000000001,
+                            Location = "Big South Fork National River and Recreation Area",
+                            Name = "Sunset Overlook",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 23,
+                            Description = "Short but steep descent of about 250 feet into the gorge, ending at the base of Fall Creek Falls.",
+                            Difficulty = "Moderate",
+                            Length = 0.69999999999999996,
+                            Location = "Fall Creek Falls State Park",
+                            Name = "Base of the Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 24,
+                            Description = "Rim loop with views of Cane Creek Falls, Cane Creek Gulf, and Fall Creek Falls.",
+                            Difficulty = "Moderate",
+                            Length = 3.1000000000000001,
+                            Location = "Fall Creek Falls State Park",
+                            Name = "Gorge Overlook and Woodland Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 25,
+                            Description = "Forested loop that takes in Piney Creek Falls.",
+                            Difficulty = "Moderate",
+                            Length = 5.2000000000000002,
+                            Location = "Fall Creek Falls State Park",
+                            Name = "Piney Creek Falls and Lower Loop",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 26,
+                            Description = "Natural-surface, hiking-only trail following the shore of Fall Creek Lake.",
+                            Difficulty = "Moderate",
+                            Length = 4.2000000000000002,
+                            Location = "Fall Creek Falls State Park",
+                            Name = "Gilbert Gaul Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 27,
+                            Description = "Short river walk past a series of waterfalls, ending at the 130-foot main falls.",
+                            Difficulty = "Moderate",
+                            Length = 1.5,
+                            Location = "Burgess Falls State Park",
+                            Name = "Burgess Falls River Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 28,
+                            Description = "Physically demanding route through the gorge to the base of the falls. A permit is required.",
+                            Difficulty = "Hard",
+                            Length = 2.5,
+                            Location = "Cummins Falls State Park",
+                            Name = "Cummins Falls Gorge Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 29,
+                            Description = "Strenuous hike that is mostly downhill on the way in and uphill on the way out, with a side trip to Sheep Cave available.",
+                            Difficulty = "Hard",
+                            Length = 8.1999999999999993,
+                            Location = "Virgin Falls State Natural Area",
+                            Name = "Virgin Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 30,
+                            Description = "Mostly level walk from the ranger station to the Stone Door overlook.",
+                            Difficulty = "Easy",
+                            Length = 2.0,
+                            Location = "Savage Gulf State Park",
+                            Name = "Stone Door Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 31,
+                            Description = "Creekside hike near Greeneville to a 60-foot fan-shaped waterfall, with an ankle-deep creek ford about a mile in.",
+                            Difficulty = "Moderate",
+                            Length = 2.6000000000000001,
+                            Location = "Cherokee National Forest",
+                            Name = "Margarette Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 32,
+                            Description = "Short Appalachian Trail section from Carvers Gap on the Tennessee and North Carolina line up to an open grassy bald.",
+                            Difficulty = "Moderate",
+                            Length = 2.0,
+                            Location = "Roan Highlands",
+                            Name = "Round Bald via Carvers Gap",
                             Rating = 0
                         });
                 });
