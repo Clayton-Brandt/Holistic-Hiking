@@ -27,15 +27,15 @@ namespace Holistic_Hiking.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Difficulty")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Difficulty")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Length")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<double>("Length")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -51,6 +51,38 @@ namespace Holistic_Hiking.Data.Migrations
                     b.HasKey("TrailId");
 
                     b.ToTable("Trails");
+
+                    b.HasData(
+                        new
+                        {
+                            TrailId = 1,
+                            Description = "Scenic Trail",
+                            Difficulty = "Moderate",
+                            Length = 4.5999999999999996,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Alum Cave Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 2,
+                            Description = "Scenic Trail",
+                            Difficulty = "Easy",
+                            Length = 2.6000000000000001,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Laurel Falls Trail",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            TrailId = 3,
+                            Description = "Scenic Trail",
+                            Difficulty = "Hard",
+                            Length = 15.0,
+                            Location = "Great Smoky Mountains National Park",
+                            Name = "Ramsey Cascade Trail",
+                            Rating = 0
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
