@@ -14,7 +14,7 @@ public class Trail
     public string Location {get; set;} = string.Empty;
 
     // Length
-    public int Length {get; set;}
+    public double Length {get; set;}
 
     // Difficulty
     public string Difficulty {get; set;} = string.Empty;
