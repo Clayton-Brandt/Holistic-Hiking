@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Data;
@@ -11,15 +10,13 @@ Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Connection String for DbContext
-builder.Services.AddDbContext<ApplicationDbContext>
-    (options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnectionString"))
-    );
-
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+// Connection String for DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -28,6 +25,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<NpsService>();
+builder.Services.AddScoped<ITrailRepository, DbTrailRepository>();
 
 var app = builder.Build();
 

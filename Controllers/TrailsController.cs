@@ -13,7 +13,7 @@ public class TrailsController : Controller
         _trailRepo = trailRepo;
     }
 
-    public async Task<IActionResult> BrowseTrails ()
+    public async Task<IActionResult> Index ()
     {
         var trail = await _trailRepo.ReadAllAsync();
         return View(trail);
