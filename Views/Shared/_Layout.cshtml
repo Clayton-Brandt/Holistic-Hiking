@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"] - Holistic Hiking</title>
+    <title>@ViewData["Title"]</title>
 
     <script type="importmap"></script>
 
@@ -19,28 +20,24 @@
         <nav class="navbar site-navbar">
             <div class="container-fluid nav-container">
                 <a class="navbar-brand"
-                    asp-area=""
-                    asp-controller="Home"
-                    asp-action="Index">
-                        <img src="~/images/logo.png"
-                        alt="Holistic Hiking Home"
-                        class="navbar-logo" />
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">
+                    <img src="~/images/logo.png"
+                         alt="Holistic Hiking Home"
+                         class="navbar-logo" />
                 </a>
-                
 
                 <div class="ms-auto">
                     <partial name="_LoginPartial" />
                 </div>
             </div>
-
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
