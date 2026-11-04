@@ -1,46 +1,43 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"] - Holistic Hiking</title>
+    <title>@ViewData["Title"]</title>
 
     <script type="importmap"></script>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Holistic_Hiking.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Holistic-Hiking.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar site-navbar">
             <div class="container-fluid nav-container">
                 <a class="navbar-brand"
-                    asp-area=""
-                    asp-controller="Home"
-                    asp-action="Index">
-                        <img src="~/images/logo.png"
-                        alt="Holistic Hiking Home"
-                        class="navbar-logo" />
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">
+                    <img src="~/images/logo.png"
+                         alt="Holistic Hiking Home"
+                         class="navbar-logo" />
                 </a>
-                
 
                 <div class="ms-auto">
                     <partial name="_LoginPartial" />
                 </div>
             </div>
-
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
+    <main role="main" class="d-flex flex-column flex-grow-1">
+        @RenderBody()
+    </main>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
