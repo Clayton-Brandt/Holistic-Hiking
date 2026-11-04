@@ -13,6 +13,13 @@
     --danger: #A4262C;
     --danger-dark: #861F24;
     --focus-ring: 0 0 0 0.25rem rgba(138, 79, 54, 0.35);
+    --link: var(--primary);
+    --link-hover: var(--primary-dark);
+    --danger-text: var(--danger);
+    --input-border: var(--muted);
+    --card-shadow: 0 2px 6px rgba(46, 32, 25, 0.06);
+    --surface-alt: #EFE9DF;
+    --hero-overlay: rgba(0, 0, 0, 0.55);
 
     /* Bootstrap Vars */
     --bs-body-bg: var(--page-bg);
@@ -20,7 +27,7 @@
     --bs-body-color: var(--body-text);
     --bs-body-color-rgb: 46, 32, 25;
     --bs-secondary-color: var(--muted);
-    --bs-secondary-bg: #EFE9DF;
+    --bs-secondary-bg: var(--surface-alt);
     --bs-border-color: var(--divider);
     --bs-primary: var(--primary);
     --bs-primary-rgb: 138, 79, 54;
@@ -28,13 +35,67 @@
     --bs-secondary-rgb: 79, 90, 69;
     --bs-danger: var(--danger);
     --bs-danger-rgb: 164, 38, 44;
-    --bs-link-color: var(--primary);
+    --bs-link-color: var(--link);
     --bs-link-color-rgb: 138, 79, 54;
-    --bs-link-hover-color: var(--primary-dark);
+    --bs-link-hover-color: var(--link-hover);
     --bs-link-hover-color-rgb: 113, 63, 42;
-    --bs-code-color: var(--primary);
-    --bs-form-invalid-color: var(--danger);
+    --bs-code-color: var(--link);
+    --bs-form-invalid-color: var(--danger-text);
     --bs-form-invalid-border-color: var(--danger);
+}
+
+[data-bs-theme="dark"] {
+    /* Our Theme Vars */
+    --page-bg: #1C1713;
+    --card-bg: #27201A;
+    --body-text: #E6DDD2;
+    --muted: #B8A797;
+    --primary: #8A4F36;
+    --primary-dark: #9C5B40;
+    --secondary: #46513D;
+    --secondary-dark: #3A4333;
+    --divider: #4A3C30;
+    --danger: #A4262C;
+    --danger-dark: #B83238;
+    --focus-ring: 0 0 0 0.25rem rgba(217, 160, 136, 0.45);
+
+    --link: #D9A088;
+    --link-hover: #E8BBA6;
+    --danger-text: #F08A8E;
+    --input-border: #7A6A5C;
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    --surface-alt: #322920;
+    --hero-overlay: rgba(0, 0, 0, 0.6);
+
+    /* Bootstrap Vars */
+    --bs-body-bg: var(--page-bg);
+    --bs-body-bg-rgb: 28, 23, 19;
+    --bs-body-color: var(--body-text);
+    --bs-body-color-rgb: 230, 221, 210;
+    --bs-emphasis-color: #FFFFFF;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+    --bs-heading-color: inherit;
+    --bs-secondary-color: var(--muted);
+    --bs-secondary-color-rgb: 184, 167, 151;
+    --bs-secondary-bg: var(--surface-alt);
+    --bs-secondary-bg-rgb: 50, 41, 32;
+    --bs-tertiary-bg: #231D18;
+    --bs-tertiary-bg-rgb: 35, 29, 24;
+    --bs-border-color: var(--divider);
+    --bs-border-color-translucent: rgba(230, 221, 210, 0.15);
+    --bs-primary: var(--primary);
+    --bs-primary-rgb: 138, 79, 54;
+    --bs-secondary: var(--secondary);
+    --bs-secondary-rgb: 70, 81, 61;
+    --bs-danger: var(--danger);
+    --bs-danger-rgb: 164, 38, 44;
+    --bs-link-color: var(--link);
+    --bs-link-color-rgb: 217, 160, 136;
+    --bs-link-hover-color: var(--link-hover);
+    --bs-link-hover-color-rgb: 232, 187, 166;
+    --bs-code-color: var(--link);
+    --bs-form-invalid-color: var(--danger-text);
+    --bs-form-invalid-border-color: var(--danger-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,7 +117,7 @@ hr {
     --bs-btn-active-border-color: var(--primary-dark);
     --bs-btn-disabled-bg: var(--primary);
     --bs-btn-disabled-border-color: var(--primary);
-    --bs-btn-focus-shadow-rgb: 138, 79, 54;
+    --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
 }
 
 .btn-secondary {
@@ -68,7 +129,7 @@ hr {
     --bs-btn-active-border-color: var(--secondary-dark);
     --bs-btn-disabled-bg: var(--secondary);
     --bs-btn-disabled-border-color: var(--secondary);
-    --bs-btn-focus-shadow-rgb: 79, 90, 69;
+    --bs-btn-focus-shadow-rgb: var(--bs-secondary-rgb);
 }
 
 .btn-danger {
@@ -80,14 +141,14 @@ hr {
     --bs-btn-active-border-color: var(--danger-dark);
     --bs-btn-disabled-bg: var(--danger);
     --bs-btn-disabled-border-color: var(--danger);
-    --bs-btn-focus-shadow-rgb: 164, 38, 44;
+    --bs-btn-focus-shadow-rgb: var(--bs-danger-rgb);
 }
 
 .btn-link {
-    --bs-btn-color: var(--primary);
-    --bs-btn-hover-color: var(--primary-dark);
-    --bs-btn-active-color: var(--primary-dark);
-    --bs-btn-focus-shadow-rgb: 138, 79, 54;
+    --bs-btn-color: var(--link);
+    --bs-btn-hover-color: var(--link-hover);
+    --bs-btn-active-color: var(--link-hover);
+    --bs-btn-focus-shadow-rgb: var(--bs-link-color-rgb);
 }
 
 /* Bootstrap Cards Overrides */
@@ -95,13 +156,13 @@ hr {
     --bs-body-bg: var(--card-bg);
     --bs-card-bg: var(--card-bg);
     --bs-card-border-color: var(--divider);
-    box-shadow: 0 2px 6px rgba(46, 32, 25, 0.06);
+    box-shadow: var(--card-shadow);
 }
 /* Forms */
 .form-control,
 .form-select,
 .form-check-input {
-    border-color: var(--muted);
+    border-color: var(--input-border);
 }
 
 .form-control:focus,
@@ -117,13 +178,13 @@ hr {
 }
 
 .form-control.input-validation-error {
-    border-color: var(--danger);
+    border-color: var(--bs-form-invalid-border-color);
 }
 
 /* Account pages */
 .nav-pills {
-    --bs-nav-link-color: var(--primary);
-    --bs-nav-link-hover-color: var(--primary-dark);
+    --bs-nav-link-color: var(--link);
+    --bs-nav-link-hover-color: var(--link-hover);
     --bs-nav-pills-link-active-bg: var(--primary);
 }
 
@@ -190,8 +251,8 @@ hr {
 
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.55)
+            var(--hero-overlay),
+            var(--hero-overlay)
         ),
         url('/images/hiking-background.jpg');
 
