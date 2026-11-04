@@ -18,4 +18,14 @@ public class TrailsController : Controller
         var trail = await _trailRepo.ReadAllAsync();
         return View(trail);
     }
+
+    public async Task<IActionResult> Details (int id)
+    {
+        var trail = await _trailRepo.ReadAsync(id);
+        if (trail == null)
+        {
+            return NotFound();
+        }
+        return View(trail);
+    }
 }

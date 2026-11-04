@@ -12,10 +12,10 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Holistic_Hiking.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Holistic-Hiking.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar site-navbar">
             <div class="container-fluid nav-container">
@@ -35,7 +35,7 @@
         </nav>
     </header>
 
-    <main role="main" class="pb-3">
+    <main role="main" class="d-flex flex-column flex-grow-1">
         @RenderBody()
     </main>
 
