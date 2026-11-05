@@ -4,8 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Disables dark reader -->
+    <meta name="darkreader-lock">
 
     <title>@ViewData["Title"]</title>
+    @* Fixes a weird flash that would occur every once in a while if user is on dark mode. Basically sets data-bs-theme attribute before the site loads.*@
+    <script>
+            document.documentElement.setAttribute('data-bs-theme',
+                localStorage.getItem('bs-theme') ||
+                (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    </script>
 
     <script type="importmap"></script>
 
