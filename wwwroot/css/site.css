@@ -235,6 +235,14 @@ hr {
     box-shadow: 0 0 0 0.2rem #FFFFFF;
 }
 
+.mode-switch .btn {
+    --bs-btn-color: rgba(255, 255, 255, 0.7);
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: rgba(255, 255, 255, 0.2);
+    --bs-btn-active-border-color: transparent;
+}
+
 /* Homepage */
 .homepage-background {
     flex: 1;
