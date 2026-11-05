@@ -198,7 +198,7 @@ hr {
     --bs-navbar-hover-color: #FFFFFF;
     --bs-navbar-active-color: #FFFFFF;
     background-color: var(--secondary);
-    border-bottom: 1px solid var(--divider);
+    /*border-bottom: 1px solid var(--divider);*/
 }
 
 .site-navbar .navbar-brand {
