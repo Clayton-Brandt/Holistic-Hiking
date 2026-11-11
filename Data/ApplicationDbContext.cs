@@ -7,11 +7,34 @@ namespace Holistic_Hiking.Data;
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
 {
     public DbSet<Trail> Trails => Set<Trail>();
+    public DbSet<Comment> Comments => Set<Comment>();
 
     // DATA SEEDS
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<Comment>(entity =>
+{
+    entity.HasKey(c => c.CommentId);
+
+    entity.Property(c => c.Text)
+          .IsRequired()
+          .HasMaxLength(2000);
+
+    entity.Property(c => c.CreatedAt)
+          .IsRequired();
+
+    entity.HasOne(c => c.Trail)
+          .WithMany(t => t.Comments)
+          .HasForeignKey(c => c.TrailId)
+          .OnDelete(DeleteBehavior.Cascade);
+
+    entity.HasOne(c => c.User)
+          .WithMany()
+          .HasForeignKey(c => c.UserId)
+          .OnDelete(DeleteBehavior.Cascade);
+});
 
         // Trail seeds
         builder.Entity<Trail>().HasData(
@@ -24,7 +47,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
                 Difficulty = "Moderate",
                 Description = "Climbs through the Arch Rock tunnel and past Inspiration Point to the 100-foot-high Alum Cave Bluffs. The trail continues on to Mount LeConte."
             },
-            
+
             new Trail
             {
                 TrailId = 2,

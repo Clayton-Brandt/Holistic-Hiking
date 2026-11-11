@@ -32,4 +32,6 @@ public class Trail
     // Trail Image Upload
     public FormFile? ImageUpload {get; set;}
     */
+
+    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 }
