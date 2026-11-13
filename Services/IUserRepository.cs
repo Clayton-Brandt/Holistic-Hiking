@@ -12,4 +12,7 @@ public interface IUserRepository
 
     // Update user profile
     Task<User?> UpdateAsync(string id, User user);
+
+    // Read user information for dashboard
+    Task<User?> ReadDashboardAsync(string id);
 }

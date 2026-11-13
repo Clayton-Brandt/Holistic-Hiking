@@ -27,6 +27,7 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<NpsService>();
 builder.Services.AddScoped<ITrailRepository, DbTrailRepository>();
+builder.Services.AddScoped<IUserRepository, DbUserRepository>();
 
 var app = builder.Build();
 

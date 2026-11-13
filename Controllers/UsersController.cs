@@ -1,4 +1,3 @@
-
 using System.Security.Claims;
 using Holistic_Hiking.Models.Entities;
 using Holistic_Hiking.Services;
@@ -110,4 +109,31 @@ public class UsersController : Controller
 
         return RedirectToAction(nameof(Profile));
     }
+
+
+    // GET: /Users/Dashboard
+    [Authorize]
+    [HttpGet]
+    public async Task<IActionResult> Dashboard()
+    {
+        // Get the currently logged-in user's ID
+        var id = User.FindFirstValue(
+            ClaimTypes.NameIdentifier);
+
+        if (string.IsNullOrEmpty(id))
+        {
+            return Challenge();
+        }
+
+        // Retrieve dashboard information
+        var user = await _userRepo.ReadDashboardAsync(id);
+
+        if (user is null)
+        {
+            return NotFound();
+        }
+
+        return View(user);
+    }
+
 }

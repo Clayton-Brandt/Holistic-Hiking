@@ -57,4 +57,15 @@ public class DbUserRepository : IUserRepository
 
         return result.Succeeded ? existing : null;
     }
+
+
+    // Read user dashboard information
+    public async Task<User?> ReadDashboardAsync(string id)
+    {
+        return await _context.Users
+            .Include(u => u.Comments)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Id == id);
+    }
+
 }

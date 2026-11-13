@@ -1,0 +1,83 @@
+@model Holistic_Hiking.Models.Entities.User
+
+@{
+    ViewData["Title"] = "My Dashboard";
+}
+
+<h2>Welcome, @Model.FirstName!</h2>
+
+<p>
+    Manage your Holistic Hiking profile and activity.
+</p>
+
+<hr />
+
+<h3>My Profile</h3>
+
+<p>Name: @Model.FirstName @Model.LastName</p>
+<p>Username: @Model.UserName</p>
+<p>Member Since: @Model.JoinDate.ToString("MMMM d, yyyy")</p>
+
+<a asp-controller="Users"
+   asp-action="Profile">
+    View Profile
+</a>
+
+<a asp-controller="Users"
+   asp-action="Edit">
+    Edit Profile
+</a>
+
+<hr />
+
+<h3>My Activity</h3>
+
+<p>Total Comments: @Model.Comments.Count</p>
+
+<h4>Recent Comments</h4>
+
+@if (Model.Comments.Any())
+{
+    @foreach (var comment in Model.Comments
+        .OrderByDescending(c => c.CreatedAt)
+        .Take(5))
+    {
+        <div>
+            <p>@comment.Text</p>
+            <small>
+                @comment.CreatedAt.ToString("MMMM d, yyyy")
+            </small>
+        </div>
+    }
+}
+else
+{
+    <p>You haven't commented on any trails yet.</p>
+}
+
+<hr />
+
+<h3>My Saved Trails</h3>
+
+<p>
+    Saved trails will appear here once
+    bookmarking is implemented.
+</p>
+
+<hr />
+
+<h3>My Trail Ratings</h3>
+
+<p>
+    Your rated trails will appear here once
+    trail ratings are integrated.
+</p>
+
+<hr />
+
+<h3>Explore Trails</h3>
+
+<a asp-controller="Trails"
+   asp-action="Index">
+    Browse Trails
+</a>
