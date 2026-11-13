@@ -35,6 +35,9 @@ public class Trail
     // Trail -> Comment -- 1:M, trails can have many comments
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
+    // Trail -> SavedTrail (1:M)
+    public ICollection<SavedTrail> SavedByUsers { get; set; } = [];
+
     // Trail -> TrailRating -- 1:M, trails can have many ratings
 
 }

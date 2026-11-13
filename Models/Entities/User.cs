@@ -29,6 +29,9 @@ public class User : IdentityUser
     // User -> Comment (1:M)
     public ICollection<Comment> Comments { get; set; } = [];
 
+    // User -> SavedTrail (1:M)
+    public ICollection<SavedTrail> SavedTrails { get; set; } = [];
+
     // Uncomment when trail ratings are implemented
     // public ICollection<Rating> Ratings { get; set; } = [];
 }

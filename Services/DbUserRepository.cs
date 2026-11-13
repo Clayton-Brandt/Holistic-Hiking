@@ -63,8 +63,10 @@ public class DbUserRepository : IUserRepository
     public async Task<User?> ReadDashboardAsync(string id)
     {
         return await _context.Users
-            .Include(u => u.Comments)
             .AsNoTracking()
+            .Include(u => u.Comments)
+            .Include(u => u.SavedTrails)
+                .ThenInclude(s => s.Trail)
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 

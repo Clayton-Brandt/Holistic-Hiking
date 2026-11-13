@@ -8,32 +8,39 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 {
     public DbSet<Trail> Trails => Set<Trail>();
     public DbSet<Comment> Comments => Set<Comment>();
+    public DbSet<SavedTrail> SavedTrails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
+        // Comments
         builder.Entity<Comment>(entity =>
-{
-    entity.HasKey(c => c.CommentId);
+        {
+            entity.HasKey(c => c.CommentId);
 
-    entity.Property(c => c.Text)
-          .IsRequired()
-          .HasMaxLength(2000);
+            entity.Property(c => c.Text)
+                .IsRequired()
+                .HasMaxLength(2000);
 
-    entity.Property(c => c.CreatedAt)
-          .IsRequired();
+            entity.Property(c => c.CreatedAt)
+                .IsRequired();
 
-    entity.HasOne(c => c.Trail)
-          .WithMany(t => t.Comments)
-          .HasForeignKey(c => c.TrailId)
-          .OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(c => c.Trail)
+                .WithMany(t => t.Comments)
+                .HasForeignKey(c => c.TrailId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-    entity.HasOne(c => c.User)
-      .WithMany(u => u.Comments)
-      .HasForeignKey(c => c.UserId)
-      .OnDelete(DeleteBehavior.Cascade);
-});
+            entity.HasOne(c => c.User)
+            .WithMany(u => u.Comments)
+            .HasForeignKey(c => c.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Saved/Bookmarked Trails        
+        builder.Entity<SavedTrail>()
+            .HasIndex(s => new { s.UserId, s.TrailId })
+            .IsUnique();
 
         // Trail seeds
         builder.Entity<Trail>().HasData(

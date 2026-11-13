@@ -50,6 +50,32 @@ namespace Holistic_Hiking.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Holistic_Hiking.Models.Entities.SavedTrail", b =>
+                {
+                    b.Property<int>("SavedTrailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("SavedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TrailId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SavedTrailId");
+
+                    b.HasIndex("TrailId");
+
+                    b.HasIndex("UserId", "TrailId")
+                        .IsUnique();
+
+                    b.ToTable("SavedTrails");
+                });
+
             modelBuilder.Entity("Holistic_Hiking.Models.Entities.Trail", b =>
                 {
                     b.Property<int>("TrailId")
@@ -639,6 +665,25 @@ namespace Holistic_Hiking.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Holistic_Hiking.Models.Entities.SavedTrail", b =>
+                {
+                    b.HasOne("Holistic_Hiking.Models.Entities.Trail", "Trail")
+                        .WithMany("SavedByUsers")
+                        .HasForeignKey("TrailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Holistic_Hiking.Models.Entities.User", "User")
+                        .WithMany("SavedTrails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trail");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -693,11 +738,15 @@ namespace Holistic_Hiking.Data.Migrations
             modelBuilder.Entity("Holistic_Hiking.Models.Entities.Trail", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("SavedByUsers");
                 });
 
             modelBuilder.Entity("Holistic_Hiking.Models.Entities.User", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("SavedTrails");
                 });
 #pragma warning restore 612, 618
         }

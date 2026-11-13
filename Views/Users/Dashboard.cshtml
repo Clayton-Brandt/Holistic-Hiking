@@ -57,7 +57,44 @@ else
 
 <hr />
 
-<h3>My Saved Trails</h3>
+
+<h2>My Saved Trails</h2>
+
+@if (Model.SavedTrails.Any())
+{
+    <ul>
+        @foreach (var saved in Model.SavedTrails.OrderByDescending(s => s.SavedAt))
+        {
+            <li>
+                <strong>@saved.Trail.Name</strong>
+
+                <p>@saved.Trail.Location</p>
+                <p>Difficulty: @saved.Trail.Difficulty</p>
+                <p>Length: @saved.Trail.Length miles</p>
+
+                <form asp-controller="SavedTrails"
+                      asp-action="Remove"
+                      method="post">
+
+                    @Html.AntiForgeryToken()
+
+                    <input type="hidden"
+                           name="trailId"
+                           value="@saved.TrailId" />
+
+                    <button type="submit">
+                        Remove from Favorites
+                    </button>
+                </form>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>You haven't saved any trails yet.</p>
+}
+
 
 <p>
     Saved trails will appear here once

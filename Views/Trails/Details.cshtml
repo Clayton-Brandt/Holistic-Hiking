@@ -33,6 +33,36 @@
                         <dt class="col-5">Rating</dt>
                         <dd class="col-7 mb-0">@(Model.Rating > 0 ? $"{Model.Rating} / 5" : "Not yet rated")</dd>
                     </dl>
+
+                    @* Save Trail Button *@
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <form asp-controller="SavedTrails"
+                            asp-action="Save"
+                            method="post">
+
+                            @Html.AntiForgeryToken()
+
+                            <input type="hidden"
+                                name="trailId"
+                                value="@Model.TrailId" />
+
+                            <button type="submit" class="btn btn-outline-success w-100">
+                                Save to Favorites
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="mb-0">
+                            <a asp-area="Identity"
+                            asp-page="/Account/Login">
+                                Log in
+                            </a>
+                            to save this trail.
+                        </p>
+                    }
+
                 </div>
             </div>
         </aside>
