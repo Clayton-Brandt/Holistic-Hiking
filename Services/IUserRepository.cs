@@ -4,13 +4,12 @@ namespace Holistic_Hiking.Services;
 
 public interface IUserRepository
 {
-    // Read One User
-    Task<User?> ReadAsync(string Id);
+    // Read one user
+    Task<User?> ReadAsync(string id);
 
-    // Read All Users 
-    Task<IEnumerable<User>> ReadAllAsync ();
+    // Read all users
+    Task<IEnumerable<User>> ReadAllAsync();
 
-    // Update Users
-    Task<User?> UpdateAsync(string OldId, User user);
-
+    // Update user profile
+    Task<User?> UpdateAsync(string id, User user);
 }

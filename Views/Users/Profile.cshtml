@@ -1,0 +1,28 @@
+@model Holistic_Hiking.Models.Entities.User
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "User Profile";
+    var currentUserId = User.FindFirstValue(
+        ClaimTypes.NameIdentifier);
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+
+<p>Username: @Model.UserName</p>
+<p>Joined: @Model.JoinDate.ToString("MMMM d, yyyy")</p>
+<p>Bio: @Model.UserBio</p>
+<p>Comments: @Model.Comments.Count</p>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <p>@TempData["SuccessMessage"]</p>
+}
+
+@if (currentUserId == Model.Id)
+{
+    <a asp-controller="Users"
+       asp-action="Edit">
+        Edit Profile
+    </a>
+}
