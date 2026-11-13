@@ -15,7 +15,7 @@ public class Comment
 
     // User -> Comment
     // foreign key to user
-    public int UserId {get; set;}
+    public string UserId {get; set;} = string.Empty;
     // navigation property
     public User? User {get; set;}
     // public IdentityUser User { get; set; } = null!;

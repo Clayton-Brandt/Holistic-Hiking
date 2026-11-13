@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Holistic_Hiking.Data;
 using Holistic_Hiking.Services;
 using DotNetEnv;
+using Holistic_Hiking.Models.Entities;
 
 
 // Load environment variables
@@ -19,7 +20,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 

@@ -1,23 +1,16 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Holistic_Hiking.Models.Entities;
 
-public class User
+public class User : IdentityUser
 {
-    // primary key
-    public int UserId {get; set;}
-
-    // username
-    public string Username {get; set;} = string.Empty;
 
     // user first name
     public string FirstName {get; set;} = string.Empty;
 
     // optional user last name
     public string? LastName {get; set;}
-
-    // user email
-    public string Email {get; set;} = string.Empty;
 
     // optional user bio/description
     public string? UserBio {get; set;}

@@ -11,9 +11,9 @@ namespace Holistic_Hiking.Controllers;
 public class CommentsController : Controller
 {
     private readonly ApplicationDbContext _db;
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<User> _userManager;
 
-    public CommentsController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
+    public CommentsController(ApplicationDbContext db, UserManager<User> userManager)
     {
         _db = db;
         _userManager = userManager;
@@ -37,7 +37,7 @@ public class CommentsController : Controller
                 c.CommentId,
                 c.Text,
                 c.UserId,
-                UserName = c.User.UserName,
+                UserName = c.User != null ? c.User.UserName : null,
                 c.CreatedAt,
                 c.UpdatedAt
             })

@@ -4,13 +4,11 @@ using Holistic_Hiking.Models.Entities;
 
 namespace Holistic_Hiking.Data;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext(options)
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<User>(options)
 {
     public DbSet<Trail> Trails => Set<Trail>();
     public DbSet<Comment> Comments => Set<Comment>();
-    public DbSet<User> Users => Set<User>();
 
-    // DATA SEEDS
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -32,9 +30,9 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
           .OnDelete(DeleteBehavior.Cascade);
 
     entity.HasOne(c => c.User)
-          .WithMany()
-          .HasForeignKey(c => c.UserId)
-          .OnDelete(DeleteBehavior.Cascade);
+      .WithMany(u => u.Comments)
+      .HasForeignKey(c => c.UserId)
+      .OnDelete(DeleteBehavior.Cascade);
 });
 
         // Trail seeds
