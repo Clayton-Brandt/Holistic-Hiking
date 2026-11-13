@@ -19,7 +19,7 @@ public class Trail
     // Difficulty
     public string Difficulty {get; set;} = string.Empty;
 
-    // Rating
+    // Rating -- Remove this to make its own rating entity
     public int Rating {get; set;}
 
     // Description
@@ -28,10 +28,13 @@ public class Trail
     // Trail Image URL
     public string? ImageUrl {get; set;}
 
-    /* In case we need the option to upload Images...
-    // Trail Image Upload
-    public FormFile? ImageUpload {get; set;}
-    */
+    /* ----------------------------------
+                Relationships
+    ------------------------------------- */
 
+    // Trail -> Comment -- 1:M, trails can have many comments
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
+    // Trail -> TrailRating -- 1:M, trails can have many ratings
+
 }
