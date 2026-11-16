@@ -151,6 +151,18 @@ hr {
     --bs-btn-focus-shadow-rgb: var(--bs-link-color-rgb);
 }
 
+.btn-outline-danger {
+    --bs-btn-color: var(--danger-text);
+    --bs-btn-border-color: var(--danger-text);
+    --bs-btn-hover-color: #FFFFFF;
+    --bs-btn-hover-bg: var(--danger);
+    --bs-btn-hover-border-color: var(--danger);
+    --bs-btn-active-color: #FFFFFF;
+    --bs-btn-active-bg: var(--danger-dark);
+    --bs-btn-active-border-color: var(--danger-dark);
+    --bs-btn-focus-shadow-rgb: var(--bs-danger-rgb);
+}
+
 /* Bootstrap Cards Overrides */
 .card {
     --bs-body-bg: var(--card-bg);
@@ -158,6 +170,13 @@ hr {
     --bs-card-border-color: var(--divider);
     box-shadow: var(--card-shadow);
 }
+
+/* Bootstrap Text Overrides */
+.text-danger {
+    color: var(--danger-text) !important;
+}
+
+
 /* Forms */
 .form-control,
 .form-select,
@@ -342,4 +361,22 @@ hr {
     height: clamp(220px, 40vw, 420px);
     object-fit: cover;
     background-color: var(--bs-secondary-bg);
+}
+
+/* Comments */
+.comment {
+    padding-block: 1rem;
+    border-top: 1px solid var(--divider);
+}
+
+.comment-text {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* User pages */
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2;
 }

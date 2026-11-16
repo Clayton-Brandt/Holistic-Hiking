@@ -1,8 +1,11 @@
+@using System.Security.Claims
 @model Trail
 
 @{
     ViewData["Title"] = Model.Name;
     var placeholderImage = "/images/trail-placeholder.jpg";
+    var signedIn = User.Identity?.IsAuthenticated == true;
+    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
 <div class="container py-4">
@@ -33,49 +36,77 @@
                         <dt class="col-5">Rating</dt>
                         <dd class="col-7 mb-0">@(Model.Rating > 0 ? $"{Model.Rating} / 5" : "Not yet rated")</dd>
                     </dl>
-
-                    @* Save Trail Button *@
-                    @if (User.Identity?.IsAuthenticated == true)
-                    {
-                        <form asp-controller="SavedTrails"
-                            asp-action="Save"
-                            method="post">
-
-                            @Html.AntiForgeryToken()
-
-                            <input type="hidden"
-                                name="trailId"
-                                value="@Model.TrailId" />
-
-                            <button type="submit" class="btn btn-outline-success w-100">
-                                Save to Favorites
-                            </button>
-                        </form>
-                    }
-                    else
-                    {
-                        <p class="mb-0">
-                            <a asp-area="Identity"
-                            asp-page="/Account/Login">
-                                Log in
-                            </a>
-                            to save this trail.
-                        </p>
-                    }
-
                 </div>
             </div>
-        </aside>
-        <div class="col-lg-8 order-lg-1">
-            <section class="card">
+            <div class="card mt-4">
                 <div class="card-body">
-                    <h2 id="about-heading" class="card-title h4">About This Trail</h2>
-                    <p class="card-text">@Model.Description</p>
+                    <h2 class="card-title h4">Actions</h2>
+                    <div class="d-grid gap-2">
+                        @if (signedIn)
+                        {
+                            @* Could add another if statement here to detect when something is saved already. *@
+                            <form asp-controller="SavedTrails" asp-action="Save" method="post" class="d-grid">
+                                <input type="hidden" name="trailId" value="@Model.TrailId" />
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-bookmark"></i> Save to Favorites
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login"
+                               asp-route-returnUrl="@Context.Request.Path"><i class="bi bi-box-arrow-in-right">Log in to
+                                save!</i></a>
+                            }
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </div>
-    </div>
+            </aside>
+            <!--- About --->
+            <div class="col-lg-8 order-lg-1">
+                <section class="card">
+                    <div class="card-body">
+                        <h2 id="about-heading" class="card-title h4">About This Trail</h2>
+                        <p class="card-text">@Model.Description</p>
+                    </div>
+                </section>
+
+                <!--- Comments --->
+                <section id="comments" class="card mt-4" data-trail-id="@Model.TrailId"
+                         data-current-user-id="@currentUserId">
+                    <div class="card-body">
+                        <h2 id="comments-heading" class="card-title h4">
+                            Comments <span id="comment-count" class="text-body-secondary fs-6"></span>
+                        </h2>
+
+
+                        @if (signedIn)
+                        {
+                            <form id="comment-form" class="mb-4">
+                                <label for="comment-text" class="visually-hidden">Write a comment</label>
+                                <textarea id="comment-text" class="form-control mb-2" rows="3" maxlength="2000"
+                                          placeholder="Share your experience..." required></textarea>
+                                <p id="comment-error" class="text-danger small mb-2" role="alert"></p>
+                                <button type="submit" class="btn btn-primary">Post comment</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <p>
+                                <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Context.Request.Path">Log
+                                    in to leave a comment.</a>
+                                </p>
+                            }
+                            <p id="comments-status" class="text-body-secondary mb-0" role="status">Loading comments...</p>
+                            <ul id="comment-list" class="list-unstyled mb-0"></ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
 
     
-    @*VERY MUCH A WIP QUICKLY THROWN TOGETHER PAGE. WILL FIX LATER THIS IS BETTER THAN NOTHING! I think in hindsight I need to cut back on the cards.*@
-</div>
+            @*VERY MUCH A WIP QUICKLY THROWN TOGETHER PAGE. WILL FIX LATER THIS IS BETTER THAN NOTHING! I think in hindsight I need to cut back on the cards.*@
+        </div>
+        @section Scripts {
+            <script src="~/js/trail-comments.js" asp-append-version="true"></script>
+        }
