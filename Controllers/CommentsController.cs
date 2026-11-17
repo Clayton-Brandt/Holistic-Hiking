@@ -37,7 +37,8 @@ public class CommentsController : Controller
                 c.CommentId,
                 c.Text,
                 c.UserId,
-                UserName = c.User != null ? c.User.UserName : null,
+                FirstName = c.User != null ? c.User.FirstName : null,
+                LastName = c.User != null ? c.User.LastName : null,
                 c.CreatedAt,
                 c.UpdatedAt
             })
@@ -75,14 +76,15 @@ public class CommentsController : Controller
         _db.Comments.Add(comment);
         await _db.SaveChangesAsync();
 
-        var userName = (await _userManager.FindByIdAsync(userId))?.UserName;
+        await _db.Entry(comment).Reference(c => c.User).LoadAsync();
 
         return Json(new
         {
             comment.CommentId,
             comment.Text,
             comment.UserId,
-            UserName = userName,
+            FirstName = comment.User?.FirstName,
+            LastName = comment.User?.LastName,
             comment.CreatedAt,
             comment.UpdatedAt
         });

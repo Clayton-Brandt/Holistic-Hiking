@@ -56,8 +56,11 @@
     const header = document.createElement(`div`);
     header.className = `d-flex flex-wrap align-items-baseline gap-2 mb-1`;
 
-    const author = document.createElement(`strong`);
-    author.textContent = comment.userName ?? `Unknown User`;
+    const author = document.createElement(`a`);
+    author.href = `/Users/Profile?id=${encodeURIComponent(comment.userId)}`;
+    author.className = `fw-semibold`;
+    const fullName = [comment.firstName, comment.lastName].filter(Boolean).join(` `);
+    author.textContent = fullName || `Unknown User`;
 
     const date = document.createElement(`small`);
     date.className = `text-body-secondary`;
@@ -199,4 +202,43 @@
   });
 
   loadComments();
+})();
+
+// Favorites system.
+(() => {
+  const form = document.getElementById(`favorite-form`);
+  if (!form) return;
+
+  const button = form.querySelector(`button`);
+  const status = document.getElementById(`favorite-status`);
+  let saved = form.dataset.saved === `true`;
+
+  function render() {
+    form.action = saved ? form.dataset.removeUrl : form.dataset.saveUrl;
+    button.className = `btn ${saved ? `btn-outline-danger` : `btn-primary`}`;
+    button.innerHTML = saved
+      ? `<i class="bi bi-bookmark-x" aria-hidden="true"></i> Remove from Favorites`
+      : `<i class="bi bi-bookmark" aria-hidden="true"></i> Save to Favorites`;
+  }
+
+  form.addEventListener(`submit`, async (e) => {
+    e.preventDefault();
+    button.disabled = true;
+
+    try {
+      const res = await fetch(form.action, { method: `POST`, body: new FormData(form) });
+
+      if (!res.ok || !res.url.includes(`/Users/Dashboard`)) throw new Error();
+
+      saved = !saved;
+      render();
+      status.textContent = saved ? `Saved to your favorites.` : `Removed from your favorites.`;
+    }
+    catch {
+      status.textContent = `Something went wrong. Please try again in a few minutes.`;
+    }
+    finally {
+      button.disabled = false;
+    }
+  });
 })();
