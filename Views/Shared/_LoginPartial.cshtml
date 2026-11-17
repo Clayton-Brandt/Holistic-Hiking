@@ -2,7 +2,7 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<ul class="navbar-nav flex-row gap-3">
+<ul class="navbar-nav gap-lg-3 order-lg-2">
     @if (SignInManager.IsSignedIn(User))
     {
         var currentUser = await UserManager.GetUserAsync(User);

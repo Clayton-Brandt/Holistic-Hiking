@@ -230,11 +230,6 @@ hr {
     width: auto;
 }
 
-.site-navbar .navbar-nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
 .site-navbar .btn-link {
     --bs-btn-color: #FFFFFF;
     --bs-btn-hover-color: #FFFFFF;
@@ -259,6 +254,25 @@ hr {
     --bs-btn-active-color: #FFFFFF;
     --bs-btn-active-bg: rgba(255, 255, 255, 0.2);
     --bs-btn-active-border-color: transparent;
+}
+
+.site-navbar .navbar-toggler {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+}
+
+.site-navbar .navbar-toggler:focus-visible {
+    box-shadow: 0 0 0 0.2rem #FFFFFF;
+}
+
+/* Space out the stacked links in the mobile menu */
+@media (max-width: 991.98px) {
+    .site-navbar .navbar-collapse {
+        padding-block: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 0.5rem;
+    }
 }
 
 /* Blurred hiking photo behind the homepage, auth pages and About banner */
