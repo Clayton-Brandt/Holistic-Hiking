@@ -25,6 +25,7 @@ public class DbUserRepository : IUserRepository
     {
         return await _context.Users
             .Include(u => u.Comments)
+            .ThenInclude(c => c.Trail)
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
@@ -65,6 +66,7 @@ public class DbUserRepository : IUserRepository
         return await _context.Users
             .AsNoTracking()
             .Include(u => u.Comments)
+                .ThenInclude(c => c.Trail)
             .Include(u => u.SavedTrails)
                 .ThenInclude(s => s.Trail)
             .FirstOrDefaultAsync(u => u.Id == id);

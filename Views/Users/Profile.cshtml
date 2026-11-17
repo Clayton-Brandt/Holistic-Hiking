@@ -2,27 +2,108 @@
 @using System.Security.Claims
 
 @{
-    ViewData["Title"] = "User Profile";
+    ViewData["Title"] = $"{Model.FirstName}'s Profile";
     var currentUserId = User.FindFirstValue(
         ClaimTypes.NameIdentifier);
+    var initial = string.IsNullOrEmpty(Model.FirstName) ? "?" : Model.FirstName[..1].ToUpper();
+
+    var comments = Model.Comments.OrderByDescending(c => c.CreatedAt).ToList();
+
+    async Task RenderComment(Comment comment)
+    {
+        <li class="comment">
+            <p class="comment-text mb-1">@comment.Text</p>
+            <small class="text-body-secondary">
+                @comment.CreatedAt.ToString("MMMM d, yyyy")
+                @if (comment.UpdatedAt != null)
+                {
+                    <text>(edited)</text>
+                }
+                &middot;
+                <a asp-controller="Trails" asp-action="Details" asp-route-id="@comment.TrailId" asp-fragment="comments">
+                    @(comment.Trail?.Name ?? "View trail")
+                </a>
+            </small>
+        </li>
+    }
+
 }
 
-<h2>@Model.FirstName @Model.LastName</h2>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" role="status">
+                    <i class="bi bi-check-circle" aria-hidden="true"></i> @TempData["SuccessMessage"]
+                </div>
+            }
 
-<p>Username: @Model.UserName</p>
-<p>Joined: @Model.JoinDate.ToString("MMMM d, yyyy")</p>
-<p>Bio: @Model.UserBio</p>
-<p>Comments: @Model.Comments.Count</p>
+            <div class="card">
+                <div class="card-body p-4 text-center">
+                    <div class="profile-avatar mb-3" aria-hidden="true">@initial</div>
+                    <h1 class="h2 mb-1">@Model.FirstName @Model.LastName</h1>
+                    <p class="text-body-secondary">Member since @Model.JoinDate.ToString("MMMM yyyy")</p>
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <p>@TempData["SuccessMessage"]</p>
-}
+                    @if (string.IsNullOrWhiteSpace(Model.UserBio))
+                    {
+                        <p class="text-body-secondary fst-italic">No bio yet.</p>
+                    }
+                    else
+                    {
+                        <p class="comment-text">@Model.UserBio</p>
+                    }
+                    <hr />
 
-@if (currentUserId == Model.Id)
-{
-    <a asp-controller="Users"
-       asp-action="Edit">
-        Edit Profile
-    </a>
-}
+                    <div class="stat-value">@Model.Comments.Count</div>
+                    <div class="text-body-secondary small mb-3">Trail comments</div>
+
+                    @if (currentUserId == Model.Id)
+                    {
+                        <a asp-controller="Users" asp-action="Edit" class="btn btn-primary">
+                            <i class="bi bi-pencil" aria-hidden="true"></i> Edit Profile
+                        </a>
+                    }
+                </div>
+            </div>
+
+        
+            <section class="card mt-4">
+                <div class="card-body">
+                    <h2 id="profile-comments-heading" class="card-title h4">
+                        Comments <span class="text-body-secondary fs-6">(@comments.Count)</span>
+                    </h2>
+
+                    @if (comments.Count == 0)
+                    {
+                        <p class="text-body-secondary mb-0">
+                            No comments have been made yet!
+                        </p>
+                    }
+                    else
+                    {
+                        <ul class="list-unstyled mb-0">
+                            @foreach (var comment in comments.Take(5))
+                            {
+                                await RenderComment(comment);
+                            }
+                        </ul>
+
+                        @if (comments.Count > 5)
+                        {
+                            <details>
+                                <summary class="btn btn-link px-0 mt-2">Show @(comments.Count - 5) more</summary>
+                                <ul class="list-unstyled mb-0">
+                                    @foreach (var comment in comments.Skip(5))
+                                    {
+                                        await RenderComment(comment);
+                                    }
+                                </ul>
+                            </details>
+                        }
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
