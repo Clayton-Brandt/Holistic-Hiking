@@ -380,3 +380,79 @@ hr {
     font-weight: 600;
     line-height: 1.2;
 }
+
+.profile-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    color: #FFFFFF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
+/* Identity Pages */
+
+.auth-background {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    overflow: hidden;
+}
+
+.auth-background::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    background-image:
+        linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+        url('/images/hiking-background.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+}
+
+.auth-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 1rem;
+}
+
+.auth-logo {
+    display: block;
+    height: 64px;
+    margin: 0 auto 1rem;
+}
+
+/* About */
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    background-image:
+        linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+        url('/images/hiking-background.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+}
+
+.about-hero-content {
+    position: relative;
+    max-width: 720px;
+}
