@@ -22,7 +22,7 @@
     <!--- Name and Image --->
     <header class="mb-4">
         <h1 class="mb-1">@Model.Name</h1>
-        <p class="trail-location mb-3">@Model.Location</p>
+        <p class="text-body-secondary mb-3">@Model.Location</p>
         <div class="card overflow-hidden">
             <img src="@(string.IsNullOrWhiteSpace(Model.ImageUrl) ? placeholderImage : Model.ImageUrl)"
                  alt="@Model.Name" class="trail-detail-image" />
