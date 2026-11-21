@@ -40,4 +40,6 @@ public class Trail
 
     // Trail -> TrailRating -- 1:M, trails can have many ratings
 
+    public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
 }

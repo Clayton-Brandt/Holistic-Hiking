@@ -9,6 +9,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Trail> Trails => Set<Trail>();
     public DbSet<Comment> Comments => Set<Comment>();
     public DbSet<SavedTrail> SavedTrails { get; set; }
+    public DbSet<Rating> Ratings => Set<Rating>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
