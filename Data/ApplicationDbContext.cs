@@ -38,6 +38,30 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             .OnDelete(DeleteBehavior.Cascade);
         });
 
+        builder.Entity<Rating>(entity =>
+    {
+        entity.HasKey(r => r.RatingId);
+
+        entity.Property(r => r.Value)
+          .IsRequired();
+
+        // DB-level 1-5 constraint (SQLite honors CHECK constraints)
+        entity.ToTable(t => t.HasCheckConstraint("CK_Rating_Value", "\"Value\" >= 1 AND \"Value\" <= 5"));
+
+        // One rating per user per trail
+        entity.HasIndex(r => new { r.TrailId, r.UserId }).IsUnique();
+
+        entity.HasOne(r => r.Trail)
+          .WithMany(t => t.Ratings)
+          .HasForeignKey(r => r.TrailId)
+          .OnDelete(DeleteBehavior.Cascade);
+
+        entity.HasOne(r => r.User)
+          .WithMany()
+          .HasForeignKey(r => r.UserId)
+          .OnDelete(DeleteBehavior.Cascade);
+    });
+
         // Saved/Bookmarked Trails        
         builder.Entity<SavedTrail>()
             .HasIndex(s => new { s.UserId, s.TrailId })
