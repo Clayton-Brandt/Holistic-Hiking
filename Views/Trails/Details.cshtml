@@ -1,8 +1,19 @@
+@using System.Security.Claims
+@inject Holistic_Hiking.Services.IUserRepository UserRepo
 @model Trail
 
 @{
     ViewData["Title"] = Model.Name;
     var placeholderImage = "/images/trail-placeholder.jpg";
+    var signedIn = User.Identity?.IsAuthenticated == true;
+    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+    var isFavorite = false;
+    if (currentUserId != null)
+    {
+        var currentUser = await UserRepo.ReadDashboardAsync(currentUserId);
+        isFavorite = currentUser?.SavedTrails.Any(s => s.TrailId == Model.TrailId) == true;
+    }
 }
 
 <div class="container py-4">
@@ -11,13 +22,13 @@
     <!--- Name and Image --->
     <header class="mb-4">
         <h1 class="mb-1">@Model.Name</h1>
-        <p class="trail-location mb-3">@Model.Location</p>
+        <p class="text-body-secondary mb-3">@Model.Location</p>
         <div class="card overflow-hidden">
             <img src="@(string.IsNullOrWhiteSpace(Model.ImageUrl) ? placeholderImage : Model.ImageUrl)"
                  alt="@Model.Name" class="trail-detail-image" />
         </div>
     </header>
-    
+
     <div class="row g-4">
         <aside class="col-lg-4 order-lg-2">
             <div class="card">
@@ -33,39 +44,43 @@
                         <dt class="col-5">Rating</dt>
                         <dd class="col-7 mb-0">@(Model.Rating > 0 ? $"{Model.Rating} / 5" : "Not yet rated")</dd>
                     </dl>
-
-                    @* Save Trail Button *@
-                    @if (User.Identity?.IsAuthenticated == true)
-                    {
-                        <form asp-controller="SavedTrails"
-                            asp-action="Save"
-                            method="post">
-
-                            @Html.AntiForgeryToken()
-
-                            <input type="hidden"
-                                name="trailId"
-                                value="@Model.TrailId" />
-
-                            <button type="submit" class="btn btn-outline-success w-100">
-                                Save to Favorites
-                            </button>
-                        </form>
-                    }
-                    else
-                    {
-                        <p class="mb-0">
-                            <a asp-area="Identity"
-                            asp-page="/Account/Login">
-                                Log in
-                            </a>
-                            to save this trail.
-                        </p>
-                    }
-
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title h4">Actions</h2>
+                    <div class="d-grid gap-2">
+                        @if (signedIn)
+                        {
+                            <form id="favorite-form" method="post" class="d-grid" asp-controller="SavedTrails"
+                                  asp-action="@(isFavorite ? "Remove" : "Save")" data-saved="@(isFavorite ? "true" : "false")"
+                                  data-save-url="@Url.Action("Save", "SavedTrails")"
+                                  data-remove-url="@Url.Action("Remove", "SavedTrails")">
+                                <input type="hidden" name="trailId" value="@Model.TrailId" />
+                                <button type="submit" class="btn @(isFavorite ? "btn-outline-danger" : "btn-primary")">
+                                    @if (isFavorite)
+                                    {
+                                        <i class="bi bi-bookmark-x" aria-hidden="true"></i> <text>Remove from Favorites</text>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-bookmark" aria-hidden="true"></i> <text>Save to Favorites</text>
+                                    }
+                                </button>
+                            </form>
+                            <p id="favorite-status" class="small text-body-secondary mb-0" role="status"></p>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login"
+                               asp-route-returnUrl="@Context.Request.Path"><i class="bi bi-box-arrow-in-right"></i> Log in to save!</a>
+                        }
+                    </div>
                 </div>
             </div>
         </aside>
+
+        <!--- About --->
         <div class="col-lg-8 order-lg-1">
             <section class="card">
                 <div class="card-body">
@@ -73,9 +88,41 @@
                     <p class="card-text">@Model.Description</p>
                 </div>
             </section>
+
+            <!--- Comments --->
+            <section id="comments" class="card mt-4" data-trail-id="@Model.TrailId"
+                     data-current-user-id="@currentUserId">
+                <div class="card-body">
+                    <h2 id="comments-heading" class="card-title h4">
+                        Comments <span id="comment-count" class="text-body-secondary fs-6"></span>
+                    </h2>
+
+                    @if (signedIn)
+                    {
+                        <form id="comment-form" class="mb-4">
+                            <label for="comment-text" class="visually-hidden">Write a comment</label>
+                            <textarea id="comment-text" class="form-control mb-2" rows="3" maxlength="2000"
+                                      placeholder="Share your experience..." required></textarea>
+                            <p id="comment-error" class="text-danger small mb-2" role="alert"></p>
+                            <button type="submit" class="btn btn-primary">Post comment</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <p>
+                            <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Context.Request.Path">Log in to leave a comment.</a>
+                        </p>
+                    }
+                    <p id="comments-status" class="text-body-secondary mb-0" role="status">Loading comments...</p>
+                    <ul id="comment-list" class="list-unstyled mb-0"></ul>
+                </div>
+            </section>
         </div>
     </div>
 
-    
     @*VERY MUCH A WIP QUICKLY THROWN TOGETHER PAGE. WILL FIX LATER THIS IS BETTER THAN NOTHING! I think in hindsight I need to cut back on the cards.*@
 </div>
+
+@section Scripts {
+    <script src="~/js/trail-details.js" asp-append-version="true"></script>
+}

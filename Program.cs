@@ -30,6 +30,7 @@ builder.Services.AddScoped<ITrailRepository, DbTrailRepository>();
 builder.Services.AddScoped<IUserRepository, DbUserRepository>();
 
 var app = builder.Build();
+await SeedData.InitializeAsync(app.Services);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

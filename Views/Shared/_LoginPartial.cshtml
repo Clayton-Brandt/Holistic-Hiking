@@ -2,25 +2,30 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<ul class="navbar-nav flex-row gap-3">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+<ul class="navbar-nav gap-lg-3 order-lg-2">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var currentUser = await UserManager.GetUserAsync(User);
+        var greetingName = string.IsNullOrWhiteSpace(currentUser?.FirstName) ? User.Identity?.Name : currentUser.FirstName;
+        <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Dashboard" title="My Dashboard"><i class="bi bi-person-fill" aria-hidden="true"></i> 
+            @greetingName</a>
+
+        </li>
+        <li class="nav-item">
+            <form class="d-inline" asp-area="Identity" asp-page="/Account/Logout"
+                    asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
+                <button type="submit" class="nav-link btn btn-link"><i class="bi bi-door-open-fill" aria-hidden="true"></i> Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register"><i class="bi bi-person-fill-add" aria-hidden="true"></i> Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login"><i class="bi bi-person-fill" aria-hidden="true"></i> Login</a>
+        </li>
+    }
+    </ul>
