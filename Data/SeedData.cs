@@ -66,6 +66,7 @@ public static class SeedData
             new DateOnly(2026, 6, 14),
             [5, 9, 23, 27, 29],
             [
+                new(1, 48, "No big waterfall on this one, but Juniper loved the creek crossings on the log bridges. Arch Rock was a highlight."),
                 new(9, 41, "Walking behind the falls never gets old. Go early on a weekday, the parking lot fills up fast."),
                 new(5, 30, "Steady climb the whole way up but the falls at the top are worth it. Rocks near the base are slick."),
                 new(27, 12, "Great short river walk with a big payoff. Bring water, the stairs on the way back are a workout."),
@@ -87,6 +88,7 @@ public static class SeedData
             new DateOnly(2026, 8, 21),
             [8, 16, 22, 30],
             [
+                new(1, 35, "Inspiration Point lives up to the name. Morning fog in the valley made for some of my favorite shots so far."),
                 new(16, 27, "The arches are massive in person. Late afternoon light through the north arch is beautiful."),
                 new(22, 15, "Easy walk to an overlook that's perfect for sunset photos. Bring a headlamp for the walk back."),
                 new(8, 9, "Wide open bald with views across the ridges. Lots of wildflowers in early summer."),
@@ -97,6 +99,7 @@ public static class SeedData
             new DateOnly(2026, 10, 3),
             [9, 11, 14, 17, 21],
             [
+                new(1, 7, "My first moderate hike! Took breaks but made it to the bluffs. The stairs through Arch Rock were really cool."),
                 new(14, 18, "Flat and shaded, great for a first hike. I saw a couple of people fly fishing along the river."),
                 new(21, 10, "Nice loop past an old homestead. Good for families, the kids loved the barn."),
                 new(11, 4, "Mostly gentle grade along the creek. Lots of old stone walls along the trail."),
@@ -107,6 +110,7 @@ public static class SeedData
             new DateOnly(2026, 11, 10),
             [6, 28],
             [
+                new(1, 5, "Busy on the weekend but worth it. Wear real hiking shoes, the upper section gets rocky and wet."),
                 new(6, 3, "Wide waterfall and a nice pool at the bottom. Please don't swim here, the current is dangerous."),
             ]),
 
@@ -115,6 +119,7 @@ public static class SeedData
             new DateOnly(2026, 2, 18),
             [20, 23, 24, 25, 26, 29, 30, 31],
             [
+                new(1, 70, "A detour from my state park list, and glad I made it. Took it slow up to the bluffs and had lunch in the shade."),
                 new(23, 62, "Steep descent to the base of the falls, but there's a cable section to help. The mist up close is amazing."),
                 new(30, 47, "The stone door itself is a neat crack in the bluff. Easy, paved approach with great overlooks."),
                 new(29, 33, "Long day but you pass several waterfalls on the way. Virgin Falls disappearing into the cave is unique."),
