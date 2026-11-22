@@ -1,6 +1,5 @@
 @{
     ViewData["Title"] = "About Us";
-    var team = new[] { "Clayton Brandt", "Terysa Brewer", "Luke Bunting", "Nathan McMichael", "William Pardue" };
 }
 
 <!--- Mission --->
@@ -16,17 +15,60 @@
 <section class="container py-5" aria-labelledby="team-heading">
     <h2 id="team-heading" class="text-center mb-4">Our Team</h2>
     <ul class="row g-4 list-unstyled justify-content-center mb-0">
-        @foreach (var name in team)
-        {
-            var initials = string.Concat(name.Split(' ').Select(part => part[0]));
-            <li class="col-6 col-md-4 col-lg-2">
-                <div class="card h-100 text-center">
-                    <div class="card-body">
-                        <div class="profile-avatar mb-3" aria-hidden="true">@initials</div>
-                        <p class="fw-semibold mb-0">@name</p>
-                    </div>
+        @* Card 1, Clayton *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">CB</div>
+                    <p class="fw-semibold mb-1">Clayton Brandt</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
                 </div>
-            </li>
-        }
+            </div>
+        </li>
+        @* Card 2, Luke *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">LB</div>
+                    <p class="fw-semibold mb-1">Luke Bunting</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Front End</p>
+                </div>
+            </div>
+        </li>
+        @* Card 3, Nathan *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">NM</div>
+                    <p class="fw-semibold mb-1">Nathan McMichael</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+        @* Card 4, Terysa *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">TB</div>
+                    <p class="fw-semibold mb-1">Terysa Brewer</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+        @* Card 5, William *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">WP</div>
+                    <p class="fw-semibold mb-1">William Pardue</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
     </ul>
 </section>
