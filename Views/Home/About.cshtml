@@ -2,15 +2,73 @@
     ViewData["Title"] = "About Us";
 }
 
-<div>
-    <h1>Our Team</h1>
-    <p>Clayton Brandt</p>
-    <p>Terysa Brewer</p>
-    <p>Luke Bunting</p>
-    <p>Nathan McMichael</p>
-    <p>William Pardue</p>
-</div>
-<div>
-    <h1>Our Mission</h1>
-    <p>Help more people enjoy the great outdoors by providing free, convenient access to hiking trail information.</p>
-</div>
+<!--- Mission --->
+<section class="about-hero" aria-labelledby="mission-heading">
+    <div class="about-hero-content mx-auto">
+        <h1 class="visually-hidden">@ViewData["Title"]</h1>
+        <h2 id="mission-heading" class="mb-3">Our Mission</h2>
+        <p class="lead mb-0">Help more people enjoy the great outdoors by providing free, convenient access to hiking trail information.</p>
+    </div>
+</section>
+
+<!--- Team --->
+<section class="container py-5" aria-labelledby="team-heading">
+    <h2 id="team-heading" class="text-center mb-4">Our Team</h2>
+    <ul class="row g-4 list-unstyled justify-content-center mb-0">
+        @* Card 1, Clayton *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">CB</div>
+                    <p class="fw-semibold mb-1">Clayton Brandt</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+        @* Card 2, Luke *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">LB</div>
+                    <p class="fw-semibold mb-1">Luke Bunting</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Front End</p>
+                </div>
+            </div>
+        </li>
+        @* Card 3, Nathan *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">NM</div>
+                    <p class="fw-semibold mb-1">Nathan McMichael</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+        @* Card 4, Terysa *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">TB</div>
+                    <p class="fw-semibold mb-1">Terysa Brewer</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+        @* Card 5, William *@
+        <li class="col-6 col-md-4 col-lg-2">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="profile-avatar mb-3" aria-hidden="true">WP</div>
+                    <p class="fw-semibold mb-1">William Pardue</p>
+                    <hr />
+                    <p class="text-body-secondary small mb-0">Job Role</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

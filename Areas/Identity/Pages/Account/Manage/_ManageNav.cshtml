@@ -1,0 +1,21 @@
+@{
+    // Identity pages set ActivePage through ManageNavPages; Users/Edit sets "EditProfile"
+    var activePage = ViewData["ActivePage"] as string;
+}
+<ul class="nav nav-pills flex-column gap-1">
+    <li class="nav-item">
+        <a class="nav-link @(activePage == "EditProfile" ? "active" : null)" asp-area="" asp-controller="Users" asp-action="Edit">
+            <i class="bi bi-person me-2" aria-hidden="true"></i>Edit profile
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-area="Identity" asp-page="/Account/Manage/ChangePassword">
+            <i class="bi bi-key me-2" aria-hidden="true"></i>Password
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-area="Identity" asp-page="/Account/Manage/PersonalData">
+            <i class="bi bi-shield-lock me-2" aria-hidden="true"></i>Personal data
+        </a>
+    </li>
+</ul>

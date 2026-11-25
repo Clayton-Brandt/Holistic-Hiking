@@ -25,27 +25,38 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <nav class="navbar site-navbar">
-            <div class="container-fluid nav-container">
+        <nav class="navbar navbar-expand-lg site-navbar">
+            <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/logo.png" alt="Holistic Hiking Home" class="navbar-logo" />
+                    <img src="~/images/logo.png" alt="Holistic Hiking Home" class="navbar-logo">
                 </a>
-                @* Theme switcher taken from the tutorial: https://albertoroura.com/building-a-theme-switcher-for-bootstrap/ *@
-                <div class="mode-switch">
-                    <button title="Use dark mode" id="dark" class="btn btn-sm">
-                        <i class="bi bi-moon"></i>
-                    </button>
-                    <button title="Use light mode" id="light" class="btn btn-sm">
-                        <i class="bi bi-sun"></i>
-                    </button>
-                    <button title="Use system preferred mode" id="system" class="btn btn-sm">
-                        <i class="bi bi-display"></i>
-                    </button>
-                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list" aria-hidden="true"></i>
+                </button>
 
-
-                <div class="ms-auto">
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Trails" asp-action="Index"><i class="bi bi-compass-fill" aria-hidden="true"></i> Browse Trails</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About"><i class="bi bi-info-circle-fill" aria-hidden="true"></i> About</a>
+                        </li>
+                    </ul>
                     <partial name="_LoginPartial" />
+                     @* Theme switcher taken from the tutorial: https://albertoroura.com/building-a-theme-switcher-for-bootstrap/ *@
+                    <div class="mode-switch my-2 my-lg-0 me-lg-3 order-lg-1">
+                        <button title="Use dark mode" id="dark" class="btn btn-sm">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                        <button title="Use light mode" id="light" class="btn btn-sm">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                        <button title="Use system preferred mode" id="system" class="btn btn-sm">
+                            <i class="bi bi-display"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -55,6 +66,8 @@
         @RenderBody()
     </main>
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script src="~/js/theme.js" asp-append-version="true" defer></script>
 </body>

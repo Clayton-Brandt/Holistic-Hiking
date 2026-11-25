@@ -1,0 +1,25 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+<div class="auth-background">
+    <div class="card auth-card">
+        <div class="card-body p-4 p-md-5 text-center">
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <h1 class="h3 mb-3">Log out?</h1>
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Log out</button>
+                </form>
+            }
+            else
+            {
+                <i class="bi bi-check-circle fs-1 d-block mb-2" aria-hidden="true"></i>
+                <h1 class="h3 mb-2">You're logged out</h1>
+                <p class="text-body-secondary mb-4">Thanks for hiking with us. See you on the trail!</p>
+                <a asp-area="" asp-controller="Trails" asp-action="Index" class="btn btn-primary w-100">Browse Trails</a>
+            }
+        </div>
+    </div>
+</div>
